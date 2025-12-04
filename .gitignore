@@ -33,3 +33,4 @@ __pycache__/multivariateRQA.cpython-311.pyc
 rqa_analysis.egg*
 test_R.ipynb
 __pycache__
+*pyd
