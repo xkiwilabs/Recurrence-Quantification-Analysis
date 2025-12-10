@@ -1,5 +1,5 @@
-from utils import norm_utils, plot_utils, output_io_utils
-from utils import rqa_utils_cpp
+from .utils import norm_utils, plot_utils, output_io_utils
+from .utils import rqa_utils_cpp
 import os
 
 def crossRQA(data1, data2, params):

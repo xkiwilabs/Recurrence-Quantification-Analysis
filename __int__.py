@@ -1,7 +1,7 @@
 # Import key functions from auto_rqa, cross_rqa, and multivariate_rqa
-from autoRQA import autoRQA
-from crossRQA import crossRQA
-from multivariateRQA import multivariateRQA, multivariateXRQA
+from .autoRQA import autoRQA
+from .crossRQA import crossRQA
+from .multivariateRQA import multivariateRQA, multivariateXRQA
 
 # Optionally import utilities for advanced users
 from .utils.norm_utils import normalize_data
