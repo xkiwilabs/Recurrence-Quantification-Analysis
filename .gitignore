@@ -16,9 +16,10 @@ venv/
 *.pyd
 *.dylib
 
-# IDE
+# IDE / Tools
 .vscode/
 .idea/
+.claude/
 
 # OS
 .DS_Store
@@ -37,6 +38,9 @@ htmlcov/
 RQA_Stats.csv
 DRP_Profile.csv
 images/
+
+# Internal docs
+docs/
 
 # Development notebooks
 test_R.ipynb

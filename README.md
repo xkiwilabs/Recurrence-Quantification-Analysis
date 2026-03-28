@@ -2,7 +2,7 @@
 
 [![Tests](https://github.com/xkiwilabs/Recurrence-Quantification-Analysis/actions/workflows/tests.yml/badge.svg)](https://github.com/xkiwilabs/Recurrence-Quantification-Analysis/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/downloads/)
+[![Python 3.12+](https://img.shields.io/badge/python-3.12%2B-blue.svg)](https://www.python.org/downloads/)
 
 This package provides fast and flexible tools for performing **Auto Recurrence Quantification Analysis (autoRQA)**, **Cross Recurrence Quantification Analysis (crossRQA)**, **Multivariate Recurrence Quantification Analysis (multivariateRQA)**, and **Diagonal Recurrence Profiles (DRP)** on time series data. It supports phase space reconstruction, recurrence plot generation, and computation of standard RQA metrics, including %REC, %DET, MaxLine, MeanLine, Entropy, Laminarity, Trapping Time, and more.
 

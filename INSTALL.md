@@ -6,7 +6,7 @@ This package includes a C++ extension for performance. You need **Python** and a
 
 ## Prerequisites
 
-### 1. Python (3.9 or newer)
+### 1. Python (3.12 or newer)
 
 Check your version:
 
@@ -14,7 +14,7 @@ Check your version:
 python3 --version
 ```
 
-If you don't have Python 3.9+, download it from [python.org](https://www.python.org/downloads/).
+If you don't have Python 3.12+, download it from [python.org](https://www.python.org/downloads/).
 
 ### 2. C++ Compiler
 

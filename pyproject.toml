@@ -8,11 +8,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "rqa-analysis"
-version = "1.0.0"
+version = "1.0.1"
 description = "Fast Recurrence Quantification Analysis (RQA) with a high-performance C++ core"
 readme = "README.md"
 license = "Apache-2.0"
-requires-python = ">=3.9"
+requires-python = ">=3.12"
 authors = [
     { name = "Mike Richardson", email = "michael.j.richardson@mq.edu.au" },
     { name = "Cathy Macpherson" },
@@ -31,9 +31,6 @@ classifiers = [
     "Intended Audience :: Science/Research",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Programming Language :: C++",

@@ -6,6 +6,13 @@ setuptools cannot declare C++ extensions in pyproject.toml yet.
 from setuptools import setup, Extension
 import pybind11
 import os
+import sys
+
+extra_compile_args = []
+if sys.platform == "win32":
+    extra_compile_args = ["/std:c++14"]
+else:
+    extra_compile_args = ["-std=c++14"]
 
 ext_modules = [
     Extension(
@@ -13,7 +20,7 @@ ext_modules = [
         [os.path.join("rqa_analysis", "utils", "rqa_utils.cpp")],
         include_dirs=[pybind11.get_include()],
         language="c++",
-        extra_compile_args=["-std=c++14"],
+        extra_compile_args=extra_compile_args,
     )
 ]
 
