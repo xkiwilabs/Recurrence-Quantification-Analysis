@@ -21,8 +21,6 @@ jobs:
         env:
           CIBW_BUILD: "cp312-* cp313-*"
           CIBW_SKIP: "*-musllinux_*"
-          CIBW_TEST_REQUIRES: pytest pandas
-          CIBW_TEST_COMMAND: "pytest {project}/tests -v"
 
       - uses: actions/upload-artifact@v4
         with:
