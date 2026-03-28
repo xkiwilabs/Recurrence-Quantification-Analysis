@@ -1,3 +1,6 @@
+from scipy.signal import butter, filtfilt
+import numpy as np
+
 
 def butter_lowpass(cutoff, fs, order=4):
     """

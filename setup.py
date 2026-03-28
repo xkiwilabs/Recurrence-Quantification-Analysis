@@ -1,30 +1,20 @@
-from setuptools import setup, Extension, find_packages
+"""Build configuration for the C++ extension module.
+
+All package metadata is in pyproject.toml. This file exists only because
+setuptools cannot declare C++ extensions in pyproject.toml yet.
+"""
+from setuptools import setup, Extension
 import pybind11
 import os
 
 ext_modules = [
     Extension(
-        "utils.rqa_utils_cpp",  # Note the module name is now under the "utils" package.
-        [os.path.join("utils", "rqa_utils.cpp")],
+        "rqa_analysis.utils.rqa_utils_cpp",
+        [os.path.join("rqa_analysis", "utils", "rqa_utils.cpp")],
         include_dirs=[pybind11.get_include()],
         language="c++",
-        extra_compile_args=["-std=c++14"]  # or "-std=c++17"
+        extra_compile_args=["-std=c++14"],
     )
 ]
 
-setup(
-    name='rqa_analysis',
-    version='1.0.1',
-    packages=find_packages(),
-    install_requires=[
-        'numpy',
-        'pandas',
-        'matplotlib',
-        'scipy',
-    ],
-    ext_modules=ext_modules,
-    description='A package for Recurrence Quantification Analysis (RQA)',
-    author='Mike Richardson and Cathy Macpherson',
-    author_email='michael.j.richardson@mq.edu.au',
-    url='https://github.com/xkiwilabs/Recurrence-Quantification-Analysis',
-)
+setup(ext_modules=ext_modules)

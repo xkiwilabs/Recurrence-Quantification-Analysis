@@ -1,7 +1,67 @@
 [build-system]
 requires = [
-    "setuptools>=42",
+    "setuptools>=64",
     "wheel",
-    "pybind11>=2.6"
+    "pybind11>=2.6",
 ]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "rqa-analysis"
+version = "1.0.0"
+description = "Fast Recurrence Quantification Analysis (RQA) with a high-performance C++ core"
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.9"
+authors = [
+    { name = "Mike Richardson", email = "michael.j.richardson@mq.edu.au" },
+    { name = "Cathy Macpherson" },
+]
+keywords = [
+    "recurrence quantification analysis",
+    "RQA",
+    "cross recurrence",
+    "time series",
+    "nonlinear dynamics",
+    "recurrence plot",
+    "dynamical systems",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: C++",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
+dependencies = [
+    "numpy>=1.20",
+    "matplotlib>=3.3",
+    "scipy>=1.7",
+]
+
+[project.optional-dependencies]
+filtering = ["pandas>=1.3"]
+dev = [
+    "pytest>=7.0",
+    "pandas>=1.3",
+]
+
+[project.urls]
+Homepage = "https://github.com/xkiwilabs/Recurrence-Quantification-Analysis"
+Repository = "https://github.com/xkiwilabs/Recurrence-Quantification-Analysis"
+Issues = "https://github.com/xkiwilabs/Recurrence-Quantification-Analysis/issues"
+Documentation = "https://github.com/xkiwilabs/Recurrence-Quantification-Analysis#readme"
+
+[tool.setuptools.packages.find]
+include = ["rqa_analysis*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

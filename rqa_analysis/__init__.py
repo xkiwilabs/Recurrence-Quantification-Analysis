@@ -1,20 +1,27 @@
-# Import key functions from auto_rqa, cross_rqa, and multivariate_rqa
+# Import key functions from analysis modules
 from .autoRQA import autoRQA
 from .crossRQA import crossRQA
-from .multivariateRQA import multivariateRQA, multivariateXRQA
+from .multivariateRQA import multivariateRQA, multivariateCrossRQA
+from .diagonalRP import DRP, crossDRP
 
-# Optionally import utilities for advanced users
+# Import utilities for advanced users
 from .utils.norm_utils import normalize_data
-from .utils.plot_utils import plot_rqa_results
-from .utils.output_io_utils import write_rqa_stats
+from .utils.plot_utils import plot_rqa_results, plot_drp_results
+from .utils.output_io_utils import write_rqa_stats, write_drp_profile
+from .utils.filter_utils import apply_filter, interpolate_missing_data
 
-# Define what the package exports
 __all__ = [
     "autoRQA",
     "crossRQA",
     "multivariateRQA",
-    "multivariateXRQA",
+    "multivariateCrossRQA",
+    "DRP",
+    "crossDRP",
     "normalize_data",
     "plot_rqa_results",
-    "write_rqa_stats"
+    "plot_drp_results",
+    "write_rqa_stats",
+    "write_drp_profile",
+    "apply_filter",
+    "interpolate_missing_data",
 ]

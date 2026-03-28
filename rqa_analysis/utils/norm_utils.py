@@ -27,7 +27,7 @@ def normalize_data(data, norm="none"):
     """
     
     # Map numeric codes to strings
-    mapping = {1: "minmax", 2: "zscore", 3: "center"}
+    mapping = {0: "none", 1: "minmax", 2: "zscore", 3: "center"}
     if isinstance(norm, int):
         norm = mapping.get(norm, f"INVALID_INT_{norm}")
 

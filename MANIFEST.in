@@ -1,0 +1,16 @@
+# C++ source (required to build from source distribution)
+include rqa_analysis/utils/rqa_utils.cpp
+
+# Documentation
+include README.md
+include INSTALL.md
+include CONTRIBUTING.md
+include CHANGELOG.md
+include LICENSE
+
+# Example data
+recursive-include exampleData *.csv *.md
+
+# Build support
+include setup.py
+include pyproject.toml

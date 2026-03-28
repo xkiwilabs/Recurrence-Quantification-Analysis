@@ -1,4 +1,5 @@
 from .utils import norm_utils, plot_utils, output_io_utils
+from .utils.metrics_utils import print_rqa_metrics
 from .utils import rqa_utils_cpp
 import os
 
@@ -26,17 +27,13 @@ def crossRQA(data1, data2, params):
     # Print stats
     if err_code == 0:
         if params['showMetrics']:
-            print(f"%REC: {float(rs['perc_recur']):.3f} | %DET: {float(rs['perc_determ']):.3f} | MaxLine: {float(rs['maxl_found']):.2f}")
-            print(f"Mean Line Length: {float(rs['mean_line_length']):.2f} | SD Line Length: {float(rs['std_line_length']):.2f} | Line Count: {float(rs['count_line']):.2f}")
-            print(f"ENTR: {float(rs['entropy']):.3f} | LAM: {float(rs['laminarity']):.3f} | TT: {float(rs['trapping_time']):.3f}")
-            print(f"Vmax: {float(rs['vmax']):.2f} | Divergence: {float(rs['divergence']):.3f}") 
-            print(f"Trend_Lower: {float(rs['trend_lower_diag']):.3f} | Trend_Upper {float(rs['trend_upper_diag']):.3f}")
+            print_rqa_metrics(rs)
     else:
         print("Error in RQA computation. Check parameters and data.")
 
     # Plot results
-    # plotMode: 'none', 'rp', 'rp_timeseries',
-    if 'rp' in params['plotMode']:
+    plot_mode = params.get('plotMode', 'rp')
+    if plot_mode in ('rp', 'rp-timeseries'):
         save_path = None
         if params.get('saveFig', False):
             save_path = os.path.join('images', 'rqa', f"crossRQA_plot.png")
@@ -45,7 +42,7 @@ def crossRQA(data1, data2, params):
             dataX=dataX1,
             dataY=dataX2,
             td=td,
-            plot_mode=params['plotMode'],
+            plot_mode=plot_mode,
             point_size=params['pointSize'],
             save_path=save_path  
         )

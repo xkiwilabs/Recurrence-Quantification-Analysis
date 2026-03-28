@@ -1,25 +1,41 @@
 # Recurrence Quantification Analysis (RQA) Python & C++ Package
 
+[![Tests](https://github.com/xkiwilabs/Recurrence-Quantification-Analysis/actions/workflows/tests.yml/badge.svg)](https://github.com/xkiwilabs/Recurrence-Quantification-Analysis/actions/workflows/tests.yml)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/downloads/)
+
 This package provides fast and flexible tools for performing **Auto Recurrence Quantification Analysis (autoRQA)**, **Cross Recurrence Quantification Analysis (crossRQA)**, **Multivariate Recurrence Quantification Analysis (multivariateRQA)**, and **Diagonal Recurrence Profiles (DRP)** on time series data. It supports phase space reconstruction, recurrence plot generation, and computation of standard RQA metrics, including %REC, %DET, MaxLine, MeanLine, Entropy, Laminarity, Trapping Time, and more.
 
 ## Key Features
 
-- **🚀 High-performance C++ core** with Python interface for speed
-- **📊 Four analysis modes**:
+- High-performance C++ core with Python interface for speed
+- Four analysis modes:
   - **Traditional RQA**: Single time series with time-delay embedding
-  - **Cross-RQA**: Compare two time series or systems  
-  - **Multivariate RQA**: Direct analysis of multi-dimensional systems (NEW!)
-  - **Diagonal Recurrence Profile**: Compute recurrence across a range of time lags (NEW!)
-- **📈 Comprehensive metrics**: All standard RQA measures plus vertical line statistics
-- **🎨 Visualization tools**: Recurrence plots with optional time series overlay
-- **📁 Example datasets**: Real physiological data, chaotic systems, and synthetic data
-- **🛡️ Robust error handling**: Graceful handling of short time series and edge cases
+  - **Cross-RQA**: Compare two time series or systems
+  - **Multivariate RQA**: Direct analysis of multi-dimensional systems
+  - **Diagonal Recurrence Profile**: Compute recurrence across a range of time lags
+- Comprehensive metrics: All standard RQA measures plus vertical line statistics
+- Visualization tools: Recurrence plots with optional time series overlay
+- Example datasets: Real physiological data, chaotic systems, and synthetic data
+- Robust error handling: Graceful handling of short time series and edge cases
 
-## Set Up Instructions
-This repository includes C++ extensions that need to be compiled before use. To compile the code, ensure you have a C++ compiler installed. Then run the following from the root directory:
-```python
+## Installation
+
+### From PyPI (recommended)
+
+```bash
+pip install rqa-analysis
+```
+
+### From source
+
+```bash
+git clone https://github.com/xkiwilabs/Recurrence-Quantification-Analysis.git
+cd Recurrence-Quantification-Analysis
 pip install .
 ```
+
+Building from source requires a C++ compiler (C++14). See [INSTALL.md](INSTALL.md) for detailed OS-specific instructions and troubleshooting.
 
 ## Parameters
 
@@ -68,7 +84,7 @@ The following parameters are used for running **Auto RQA (`autoRQA`)**, **Cross 
 ```python
 import numpy as np
 import pandas as pd
-from autoRQA import autoRQA
+from rqa_analysis import autoRQA
 
 # Load example data or generate sample data
 data = pd.read_csv('exampleData/PostureData.csv', header=None).iloc[:, 0].values
@@ -96,7 +112,7 @@ td, rs, mats, err_code = autoRQA(data, params)
 ### Cross Recurrence Quantification Analysis (`crossRQA`)
 
 ```python
-from crossRQA import crossRQA
+from rqa_analysis import crossRQA
 
 # Load synchronized data
 data = pd.read_csv('exampleData/RockingChairData.csv', header=None)
@@ -126,7 +142,7 @@ td, rs, mats, err_code = crossRQA(data1, data2, params)
 ### Multivariate Recurrence Quantification Analysis (`multivariateRQA`) - NEW!
 
 ```python
-from multivariateRQA import multivariateRQA, multivariateCrossRQA
+from rqa_analysis import multivariateRQA, multivariateCrossRQA
 
 # Load multivariate data (e.g., 3D Lorenz chaotic system)
 data = pd.read_csv('exampleData/lorenz_chaotic_xyz.csv')
@@ -165,7 +181,7 @@ td, rs, mats, err_code = multivariateCrossRQA(data1, data2, params)
 
 ```python
 import pandas as pd
-from diagonalRP import DRP, crossDRP
+from rqa_analysis import DRP, crossDRP
 
 # Load example data or generate sample data
 data = pd.read_csv('exampleData/PostureData.csv', header=None).iloc[:, 0].values

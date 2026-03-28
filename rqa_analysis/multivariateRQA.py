@@ -1,4 +1,5 @@
 from .utils import norm_utils, plot_utils, output_io_utils
+from .utils.metrics_utils import print_rqa_metrics
 from .utils import rqa_utils_cpp
 import numpy as np
 import os
@@ -88,12 +89,7 @@ def multivariateRQA(data, params, mode="auto"):
     # Print stats
     if err_code == 0:
         if params.get('showMetrics', True):
-            print(f"%REC: {float(rs['perc_recur']):.3f} | %DET: {float(rs['perc_determ']):.3f} | MaxLine: {float(rs['maxl_found']):.2f}")
-            print(f"Mean Line Length: {float(rs['mean_line_length']):.2f} | SD Line Length: {float(rs['std_line_length']):.2f} | Line Count: {float(rs['count_line']):.2f}")
-            print(f"ENTR: {float(rs['entropy']):.3f} | LAM: {float(rs['laminarity']):.3f} | TT: {float(rs['trapping_time']):.3f}")
-            print(f"Vmax: {float(rs['vmax']):.2f} | Divergence: {float(rs['divergence']):.3f}") 
-            print(f"Trend_Lower: {float(rs['trend_lower_diag']):.3f} | Trend_Upper {float(rs['trend_upper_diag']):.3f}")
-            print(f"Dimensions: {ds['dim']} | Analysis: {analysis_type}")
+            print_rqa_metrics(rs, extra_info=f"Dimensions: {ds['dim']} | Analysis: {analysis_type}")
     else:
         print("Error in multivariate RQA computation. Check parameters and data.")
     
